@@ -11,7 +11,7 @@ Proyecto Final Para el Bootcamp 68
 - Repositorio del microservicio de transacciones bancarias: https://github.com/AngelC32/transactions-msvc
 
 ## Pasos:
-1. Clonar los repositorios en la carpeta raiz
-2. Ejecutar los archivos docker compose:
+1. Clonar los repositorios en alguna carpeta
+2. Ejecutar los archivos docker compose desde la carpeta raiz donde están clonados los proyectos:
    - docker compose -f docker-compose.infra.yaml up --build -d
    - docker compose -f docker-compose.msvc.yaml up --build -d
