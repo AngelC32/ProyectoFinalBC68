@@ -1,7 +1,7 @@
 # ProyectoFinalBC68
 Proyecto Final Para el Bootcamp 68
 
-##Repositorios:
+## Repositorios:
 - Repositorio para archivos yaml de configuracion: https://github.com/AngelC32/banking-config-repo
 - Config Server: https://github.com/AngelC32/config-server
 - Discovery Server(Eureka): https://github.com/AngelC32/discovery-server
