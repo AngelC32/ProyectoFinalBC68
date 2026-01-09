@@ -1,0 +1,42 @@
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db_mongo
+    networks:
+      - bootcamp
+
+  discovery-server:
+    build:
+      context: ./
+      dockerfile: ./discovery-server/Dockerfile
+    container_name: discovery-server
+    ports:
+      - "8761:8761"
+    networks:
+      - bootcamp
+
+  config-server:
+    build:
+      context: ./
+      dockerfile: ./config-server/Dockerfile
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    networks:
+      - bootcamp
+    depends_on:
+      - discovery-server
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
+
+volumes:
+  mongo_data:
+    name: mongo_data
+
+networks:
+  bootcamp:
+    driver: bridge

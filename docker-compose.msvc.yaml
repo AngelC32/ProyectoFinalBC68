@@ -1,0 +1,68 @@
+services:
+  gateway-msvc:
+    build:
+      context: ./
+      dockerfile: ./gateway-msvc/Dockerfile
+    container_name: gateway-msvc
+    ports:
+      - "8090:8090"
+    networks:
+      - proyectofinal_bootcamp
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      CONFIG_SERVER_URI: http://config-server:8888
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
+
+  customers-msvc:
+    build:
+      context: ./
+      dockerfile: ./customers-msvc/Dockerfile
+    container_name: customers-msvc
+    ports:
+      - "8080:8080"
+    networks:
+      - proyectofinal_bootcamp
+    depends_on:
+      - gateway-msvc
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      CONFIG_SERVER_URI: http://config-server:8888
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
+      SONAR_HOST_URL: http://sonarqube:9000
+      SONAR_TOKEN: squ_de6d77b196b42d5aa9ff13fa631c008d22a1abef
+
+  transactions-msvc:
+    build:
+      context: ./
+      dockerfile: ./transactions-msvc/Dockerfile
+    container_name: transactions-msvc
+    ports:
+      - "8081:8081"
+    networks:
+      - proyectofinal_bootcamp
+    depends_on:
+      - gateway-msvc
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      CONFIG_SERVER_URI: http://config-server:8888
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
+
+  accounts-msvc:
+    build:
+      context: ./
+      dockerfile: ./accounts-msvc/Dockerfile
+    container_name: accounts-msvc
+    ports:
+      - "8082:8082"
+    networks:
+      - proyectofinal_bootcamp
+    depends_on:
+      - gateway-msvc
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      CONFIG_SERVER_URI: http://config-server:8888
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka
+
+networks:
+  proyectofinal_bootcamp:
+    external: true

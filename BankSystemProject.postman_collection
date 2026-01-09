@@ -1,0 +1,887 @@
+{
+	"info": {
+		"_postman_id": "8399b6cb-4eb8-487d-bbeb-adb83da3f520",
+		"name": "Bank System Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50836646",
+		"_collection_link": "https://angelgerardo-carmencruzatti-9848706.postman.co/workspace/Angel's-Workspace~af3fc7dd-2eba-4ed7-8da1-1f5204be8f82/collection/50836646-8399b6cb-4eb8-487d-bbeb-adb83da3f520?action=share&source=collection_link&creator=50836646"
+	},
+	"item": [
+		{
+			"name": "Customer Service",
+			"item": [
+				{
+					"name": "List customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Correlation-Id",
+								"value": "pruebaList",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{customerServiceUrl}}/customers",
+							"host": [
+								"{{customerServiceUrl}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Angel Carmen updated\",\r\n    \"email\":\"angelupdated@email.com\",\r\n    \"document\":\"88771111\",\r\n    \"phoneNumber\": \"999111999\",\r\n    \"type\": \"PERSONAL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{customerServiceUrl}}/customers/695379e82d3e6efda3027144",
+							"host": [
+								"{{customerServiceUrl}}"
+							],
+							"path": [
+								"customers",
+								"695379e82d3e6efda3027144"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Angel NTT3\",\r\n    \"email\":\"angel@email.com\",\r\n    \"document\":\"88771111\",\r\n    \"phoneNumber\": \"999111999\",\r\n    \"type\": \"PERSONAL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{customerServiceUrl}}/customers",
+							"host": [
+								"{{customerServiceUrl}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{customerServiceUrl}}/customers/695debdfcd8e2ee1729534e2",
+							"host": [
+								"{{customerServiceUrl}}"
+							],
+							"path": [
+								"customers",
+								"695debdfcd8e2ee1729534e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customers By Ids",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{customerServiceUrl}}/customers/by-ids?ids=1,2,3,4",
+							"host": [
+								"{{customerServiceUrl}}"
+							],
+							"path": [
+								"customers",
+								"by-ids"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "1,2,3,4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{customerServiceUrl}}/customers/6961772f7c5fe988b98ecb39",
+							"host": [
+								"{{customerServiceUrl}}"
+							],
+							"path": [
+								"customers",
+								"6961772f7c5fe988b98ecb39"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TransactionsService",
+			"item": [
+				{
+					"name": "Create a Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"operationNumber\": \"op-01\",\r\n    \"productType\": \"ACCOUNT\",\r\n    \"productId\": \"695e81da2327aefeac09b4b9\",\r\n    \"transactionType\": \"DEPOSIT\",\r\n    \"amount\": 150.75,\r\n    \"description\": \"Transfer to savings\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{transactionServiceUrl}}/transactions",
+							"host": [
+								"{{transactionServiceUrl}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a transaction",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"operationNumber\": \"op-01-up3\",\r\n    \"productType\": \"CREDIT\",\r\n    \"productId\": \"acct-0001-UP\",\r\n    \"transactionType\": \"DEPOSIT\",\r\n    \"amount\": 151.75,\r\n    \"description\": \"Transfer to savings update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{transactionServiceUrl}}/transactions/695e7e11215ecd404a80c419",
+							"host": [
+								"{{transactionServiceUrl}}"
+							],
+							"path": [
+								"transactions",
+								"695e7e11215ecd404a80c419"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{transactionServiceUrl}}/transactions",
+							"host": [
+								"{{transactionServiceUrl}}"
+							],
+							"path": [
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "695deeb3cc4ad1d76cdf6999",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2026-01-01T19:20:00Z",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2026-01-04",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2026-01-04",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{transactionServiceUrl}}/transactions/695def227ef91e464e9c0dd1",
+							"host": [
+								"{{transactionServiceUrl}}"
+							],
+							"path": [
+								"transactions",
+								"695def227ef91e464e9c0dd1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a transaction",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{transactionServiceUrl}}/transactions/695e7e11215ecd404a80c419",
+							"host": [
+								"{{transactionServiceUrl}}"
+							],
+							"path": [
+								"transactions",
+								"695e7e11215ecd404a80c419"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete transactions by productId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{transactionServiceUrl}}/transactions/deleteByProductId/695dab734f02f9b16b5ba847",
+							"host": [
+								"{{transactionServiceUrl}}"
+							],
+							"path": [
+								"transactions",
+								"deleteByProductId",
+								"695dab734f02f9b16b5ba847"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts Service",
+			"item": [
+				{
+					"name": "Create Account",
+					"item": [
+						{
+							"name": "Personal Type",
+							"item": [
+								{
+									"name": "Create a PERSONAL account - Savings type",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountType\": \"SAVINGS\",\r\n    \"ownershipType\": \"PERSONAL\",\r\n    \"holders\": [\"695ee24f8d565883634b7e62\"],\r\n    \"monthlyMovementLimit\":3,\r\n    \"maintenanceFee\": null,\r\n    \"fixedOperationDate\": null\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{accountsServiceUrl}}/accounts",
+											"host": [
+												"{{accountsServiceUrl}}"
+											],
+											"path": [
+												"accounts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a PERSONAL account - Current type",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountType\": \"CURRENT\",\r\n    \"ownershipType\": \"PERSONAL\",\r\n    \"holders\": [\"6961772f7c5fe988b98ecb39\"],\r\n    //\"signers\": [\"6952ca8ca2fed8a710540eb8\"],\r\n    \"monthlyMovementLimit\": null,\r\n    \"maintenanceFee\": 12.99,\r\n    \"fixedOperationDate\": null\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{accountsServiceUrl}}/accounts",
+											"host": [
+												"{{accountsServiceUrl}}"
+											],
+											"path": [
+												"accounts"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a PERSONAL account - Fixed type",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountType\": \"FIXED\",\r\n    \"ownershipType\": \"PERSONAL\",\r\n    \"holders\": [\"695d89c916183ce4d2f47994\"],\r\n    \"monthlyMovementLimit\": null,\r\n    \"maintenanceFee\": null,\r\n    \"fixedOperationDate\": 3\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{accountsServiceUrl}}/accounts",
+											"host": [
+												"{{accountsServiceUrl}}"
+											],
+											"path": [
+												"accounts"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Business Type",
+							"item": [
+								{
+									"name": "Create a  BUSINESS account - Current type Copy",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"accountType\": \"CURRENT\",\r\n    \"ownershipType\": \"BUSINESS\",\r\n    \"holders\": [\"695d9c69cd8e2ee1729534df\"],\r\n    \"signers\": [],\r\n    \"balance\":100,\r\n    \"monthlyMovementLimit\": null,\r\n    \"maintenanceFee\": 12.99,\r\n    \"fixedOperationDate\": null\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{accountsServiceUrl}}/accounts",
+											"host": [
+												"{{accountsServiceUrl}}"
+											],
+											"path": [
+												"accounts"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update Account",
+					"item": [
+						{
+							"name": "Update a BUSINESS account",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accountType\": \"CURRENT\",\r\n    \"ownershipType\": \"BUSINESS\",\r\n    \"holders\": [\"695d9c69cd8e2ee1729534df\"],\r\n    \"signers\": [\"695deb4acd8e2ee1729534e1\"],\r\n    \"monthlyMovementLimit\":null,\r\n    \"maintenanceFee\": 4,\r\n    \"fixedOperationDate\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{accountsServiceUrl}}/accounts/695d9db5384648cf3a7bde18",
+									"host": [
+										"{{accountsServiceUrl}}"
+									],
+									"path": [
+										"accounts",
+										"695d9db5384648cf3a7bde18"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a PERSONAL account",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accountType\": \"SAVINGS\",\r\n    \"ownershipType\": \"PERSONAL\",\r\n    \"holders\": [\"695debdfcd8e2ee1729534e2\"],\r\n    \"monthlyMovementLimit\":4,\r\n    \"maintenanceFee\": null,\r\n    \"fixedOperationDate\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{accountsServiceUrl}}/accounts/695debeccc4ad1d76cdf6998",
+									"host": [
+										"{{accountsServiceUrl}}"
+									],
+									"path": [
+										"accounts",
+										"695debeccc4ad1d76cdf6998"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Register Movement/Transaction",
+					"item": [
+						{
+							"name": "Register a transaction DEPOSIT",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount\": 40,\r\n    \"movementType\": \"DEPOSIT\",\r\n    \"description\": \"deposito prueba\",\r\n    \"destinationAccountId\":null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{accountsServiceUrl}}/accounts/6961774472a71828e9faee44/movements",
+									"host": [
+										"{{accountsServiceUrl}}"
+									],
+									"path": [
+										"accounts",
+										"6961774472a71828e9faee44",
+										"movements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register a transaction WITHDRAW",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount\": 30,\r\n    \"movementType\": \"WITHDRAW\",\r\n    \"description\": \"retiro prueba\",\r\n    \"destinationAccountId\":null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{accountsServiceUrl}}/accounts/695deeb3cc4ad1d76cdf6999/movements",
+									"host": [
+										"{{accountsServiceUrl}}"
+									],
+									"path": [
+										"accounts",
+										"695deeb3cc4ad1d76cdf6999",
+										"movements"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register a transaction TRANSFER",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount\": 2,\r\n    \"movementType\": \"TRANSFER\",\r\n    \"description\": \"transfer prueba\",\r\n    \"destinationAccountId\":\"696176e972a71828e9faee43\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{accountsServiceUrl}}/accounts/696176b972a71828e9faee42/movements",
+									"host": [
+										"{{accountsServiceUrl}}"
+									],
+									"path": [
+										"accounts",
+										"696176b972a71828e9faee42",
+										"movements"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{accountsServiceUrl}}/accounts",
+							"host": [
+								"{{accountsServiceUrl}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "holderId",
+									"value": "695d89c916183ce4d2f47994",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{accountsServiceUrl}}/accounts/695deeb3cc4ad1d76cdf6999",
+							"host": [
+								"{{accountsServiceUrl}}"
+							],
+							"path": [
+								"accounts",
+								"695deeb3cc4ad1d76cdf6999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Holders by AccountId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{accountsServiceUrl}}/accounts/695d9db5384648cf3a7bde18/holders",
+							"host": [
+								"{{accountsServiceUrl}}"
+							],
+							"path": [
+								"accounts",
+								"695d9db5384648cf3a7bde18",
+								"holders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Signers by AccountId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{accountsServiceUrl}}/accounts/695d9db5384648cf3a7bde18/signers",
+							"host": [
+								"{{accountsServiceUrl}}"
+							],
+							"path": [
+								"accounts",
+								"695d9db5384648cf3a7bde18",
+								"signers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{accountsServiceUrl}}/accounts/695d90ebf43b5f12accacf2d",
+							"host": [
+								"{{accountsServiceUrl}}"
+							],
+							"path": [
+								"accounts",
+								"695d90ebf43b5f12accacf2d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete account by customerId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{accountsServiceUrl}}/accounts/deleteByCustomerId/695d89c916183ce4d2f47994",
+							"host": [
+								"{{accountsServiceUrl}}"
+							],
+							"path": [
+								"accounts",
+								"deleteByCustomerId",
+								"695d89c916183ce4d2f47994"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Credits Service",
+			"item": [
+				{
+					"name": "Create a credit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerId\": \"6952bfc18c54a4d27956ce8d\",\r\n  \"type\": \"PERSONAL\",\r\n  \"originalAmount\": 5000.00,\r\n  \"interestRate\": 0.03,\r\n  \"lateInterestRate\": 0.10,\r\n  \"totalInstallments\": 24,\r\n  \"startDate\": \"2025-11-05\",\r\n  \"paymentDayOfMonth\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{creditsServiceUrl}}/credits",
+							"host": [
+								"{{creditsServiceUrl}}"
+							],
+							"path": [
+								"credits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a credit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerId\": \"cust-123-up-2\",\r\n  \"type\": \"PERSONAL\",\r\n  \"originalAmount\": 7000.00,\r\n  \"interestRate\": 0.03,\r\n  \"lateInterestRate\": 0.10,\r\n  \"totalInstallments\": 24,\r\n  \"startDate\": \"2026-01-10\",\r\n  \"paymentDayOfMonth\": 26\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{creditsServiceUrl}}/credits/695b6ec88dcb71d16685747c",
+							"host": [
+								"{{creditsServiceUrl}}"
+							],
+							"path": [
+								"credits",
+								"695b6ec88dcb71d16685747c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List credits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{creditsServiceUrl}}/credits",
+							"host": [
+								"{{creditsServiceUrl}}"
+							],
+							"path": [
+								"credits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get customer by credit it",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{creditsServiceUrl}}/credits/695bfa20a5c7d0ffa7c8e927/customer",
+							"host": [
+								"{{creditsServiceUrl}}"
+							],
+							"path": [
+								"credits",
+								"695bfa20a5c7d0ffa7c8e927",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Credit by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{creditsServiceUrl}}/credits/695b6dce5b83f4762576288a",
+							"host": [
+								"{{creditsServiceUrl}}"
+							],
+							"path": [
+								"credits",
+								"695b6dce5b83f4762576288a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pay credit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 1000,\r\n    \"description\":\"pago credito\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{creditsServiceUrl}}/credits/695b6dce5b83f4762576288a/payments",
+							"host": [
+								"{{creditsServiceUrl}}"
+							],
+							"path": [
+								"credits",
+								"695b6dce5b83f4762576288a",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "customerServiceUrl",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "transactionServiceUrl",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "accountsServiceUrl",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "customerServiceUrl",
+			"value": ""
+		},
+		{
+			"key": "transactionServiceUrl",
+			"value": ""
+		},
+		{
+			"key": "accountsServiceUrl",
+			"value": ""
+		}
+	]
+}
